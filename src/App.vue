@@ -1,27 +1,18 @@
 <template>
   <div id="app" class="app" :class="mode">
-    <Header :mode="mode" @toggle="toggle"></Header>
+    <Header></Header>
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
 export default {
-  data() {
-    return {
-      mode: "light"
-    };
-  },
   components: {
     Header
   },
-  methods: {
-    toggle() {
-      if (this.mode === "dark") {
-        this.mode = "light";
-      } else {
-        this.mode = "dark";
-      }
+  computed: {
+    mode() {
+      return this.$store.getters.getMode;
     }
   }
 };

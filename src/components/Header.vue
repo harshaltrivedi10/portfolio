@@ -2,18 +2,17 @@
   <header class="header">
     <nav>
       <div class="nav-link">One</div>
-      <div class="nav-link">Two</div>
+      <div class="nav-link">git Two</div>
       <div class="nav-link">Three</div>
       <div class="nav-link">Four</div>
     </nav>
-    <Toggle :mode="mode" @toggle="$emit('toggle')"></Toggle>
+    <Toggle></Toggle>
   </header>
 </template>
 
 <script>
 import Toggle from "@/components/Toggle.vue";
 export default {
-  props: ["mode"],
   components: {
     Toggle
   }

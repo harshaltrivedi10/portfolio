@@ -4,7 +4,7 @@
       <input
         type="checkbox"
         :checked="mode === 'dark' ? 'checked' : false"
-        @change="$emit('toggle')"
+        @change="changeMode"
       />
       <span class="toggler round"></span>
     </label>
@@ -13,7 +13,16 @@
 
 <script>
 export default {
-  props: ["mode"]
+  computed: {
+    mode() {
+      return this.$store.getters.getMode;
+    }
+  },
+  methods: {
+    changeMode() {
+      this.$store.dispatch("toggle");
+    }
+  }
 };
 </script>
 
@@ -56,11 +65,11 @@ export default {
 }
 
 input:checked + .toggler {
-  background: #2196f3;
+  background: rgb(194, 194, 194);
 }
 
 input:focus + toggler {
-  box-shadow: 0 0 2px #2196f3;
+  box-shadow: 0 0 2px rgb(194, 194, 194);
 }
 
 input:checked + .toggler:before {
