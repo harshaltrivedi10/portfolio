@@ -1,6 +1,13 @@
 <template>
   <div id="app" class="app" :class="mode">
-    <Header></Header>
+    <div id="navigation">
+      <Header></Header>
+    </div>
+    <div>
+      <transition name="slide" mode="out-in">
+        <router-view></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -42,5 +49,34 @@ export default {
 .dark {
   background: #192734;
   color: #f3f3f3;
+}
+
+.slide-enter-active {
+  animation: slide-in 1s ease forwards;
+}
+.slide-leave-active {
+  animation: slide-out 1s ease forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
 }
 </style>

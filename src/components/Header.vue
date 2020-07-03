@@ -1,10 +1,15 @@
 <template>
   <header class="header">
-    <nav>
-      <div class="nav-link">One</div>
-      <div class="nav-link">git Two</div>
-      <div class="nav-link">Three</div>
-      <div class="nav-link">Four</div>
+    <nav class="navbar">
+      <router-link class="nav-link" to="/" tag="div">
+        <strong>Harshal Trivedi</strong>
+      </router-link>
+      <router-link class="nav-link" to="/blogs" tag="div">
+        Blogs
+      </router-link>
+      <router-link class="nav-link" to="/projects" tag="div">
+        Projects
+      </router-link>
     </nav>
     <Toggle></Toggle>
   </header>
@@ -47,9 +52,14 @@ export default {
 
 .header nav .nav-link:hover {
   background: #b0b0b0;
+  cursor: pointer;
 }
 
 .dark .header nav .nav-link:hover {
-  background: #101520;
+  background: #464d5c;
+}
+
+.header .navbar {
+  height: 100%;
 }
 </style>
